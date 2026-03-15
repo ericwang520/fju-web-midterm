@@ -81,7 +81,6 @@
   </section>
 
   <script>
-    // Mobile: toggle overlay on tap
     if ('ontouchstart' in window) {
       document.querySelectorAll('.value-card').forEach(card => {
         card.addEventListener('click', () => {
@@ -93,13 +92,154 @@
     }
   </script>
 
-  <!-- Video Section -->
-  <section class="brand-video-section">
-    <h2 class="section-title">品牌影片</h2>
-    <div class="brand-video">
-      <iframe src="https://www.youtube.com/embed/RuXhSym9xho" title="國堡門介紹影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <!-- Live Door Counter + Video -->
+  <section class="live-counter">
+    <div class="live-counter-inner">
+      <p class="live-counter-text">
+        累計售出 <span class="live-counter-number" id="doorCounter">0</span> 扇門
+      </p>
+      <p class="live-counter-sub">數據自 2020 年 1 月起持續累計</p>
+    </div>
+    <div class="live-counter-glow"></div>
+    <div class="live-counter-line">
+      <div class="live-counter-dot"></div>
+    </div>
+    <div class="live-counter-video">
+      <div class="brand-video">
+        <iframe id="brandVideo" src="https://www.youtube.com/embed/RuXhSym9xho?enablejsapi=1&mute=1" title="國堡門介紹影片" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
   </section>
+
+  <script>
+    // ===== Auto-play video on scroll =====
+    (function() {
+      const iframe = document.getElementById('brandVideo');
+      let hasPlayed = false;
+
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasPlayed) {
+            iframe.contentWindow.postMessage(
+              JSON.stringify({ event: 'command', func: 'playVideo' }), '*'
+            );
+            hasPlayed = true;
+          }
+        });
+      }, { threshold: 0.5 });
+
+      videoObserver.observe(iframe);
+    })();
+  </script>
+
+  <!-- Global Stats Section -->
+  <section class="global-stats">
+    <img class="global-stats-map" src="assets/world.svg" alt="World Map">
+
+    <div class="global-stats-content">
+      <div class="global-stats-left">
+        <span class="global-stats-label">GLOBAL REACH</span>
+        <h2 class="global-stats-title">熱銷海外</h2>
+        <p class="global-stats-desc">國堡門以頂級品質與獨特設計，深受海內外客戶信賴，產品遠銷多國，為台灣精品門業立下國際標竿。</p>
+      </div>
+      <div class="global-stats-grid">
+        <div class="global-stat-item">
+          <span class="global-stat-number" data-target="30">0</span>
+          <span class="global-stat-unit">+</span>
+          <span class="global-stat-desc">外銷國家與地區</span>
+        </div>
+        <div class="global-stat-item">
+          <span class="global-stat-number" id="doorCounterStats">0</span>
+          <span class="global-stat-unit">+</span>
+          <span class="global-stat-desc">累計銷售門數</span>
+        </div>
+        <div class="global-stat-item">
+          <span class="global-stat-number" data-target="200">0</span>
+          <span class="global-stat-unit">+</span>
+          <span class="global-stat-desc">合作經銷商</span>
+        </div>
+        <div class="global-stat-item">
+          <span class="global-stat-number" data-target="35">0</span>
+          <span class="global-stat-unit">年</span>
+          <span class="global-stat-desc">品牌深耕</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="global-stats-bottom">
+      <div class="global-stats-bottom-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span class="bottom-stat-number">6</span>
+        <span class="bottom-stat-label">全台門市</span>
+      </div>
+      <div class="global-stats-bottom-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span class="bottom-stat-number">100+</span>
+        <span class="bottom-stat-label">專業團隊</span>
+      </div>
+      <div class="global-stats-bottom-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <span class="bottom-stat-number">ISO 9001</span>
+        <span class="bottom-stat-label">國際品質認證</span>
+      </div>
+      <div class="global-stats-bottom-item">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><circle cx="12" cy="5" r="3"/></svg>
+        <span class="bottom-stat-number">MIT</span>
+        <span class="bottom-stat-label">台灣製造</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // ===== Global Stats Counter Animation =====
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.global-stat-number').forEach(el => {
+            if (!el.dataset.target) return; // skip live counter element
+            const target = parseInt(el.dataset.target);
+            const duration = 2000;
+            const start = performance.now();
+            function update(now) {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.floor(eased * target).toLocaleString();
+              if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    const statsSection = document.querySelector('.global-stats');
+    if (statsSection) statsObserver.observe(statsSection);
+  </script>
+
+  <script>
+    // ===== Live Door Counter (timestamp-based) =====
+    (function() {
+      const startDate = new Date('2020-01-01T00:00:00');
+      const startCount = 65315515;
+      const intervalSec = 3;
+
+      function getCount() {
+        const now = Date.now();
+        const elapsed = (now - startDate.getTime()) / 1000;
+        return startCount + Math.floor(elapsed / intervalSec);
+      }
+
+      const el = document.getElementById('doorCounter');
+      const el2 = document.getElementById('doorCounterStats');
+      function update() {
+        const count = getCount().toLocaleString();
+        if (el) el.textContent = count;
+        if (el2) el2.textContent = count;
+      }
+      update();
+      setInterval(update, 1000);
+    })();
+  </script>
 
   <!-- Footer -->
   <footer class="footer">
