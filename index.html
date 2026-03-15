@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>國堡門 - 門，是家的第一道防線</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="nav-overlay" onclick="toggleMenu()"></div>
+  <nav class="navbar">
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-left">
+      <a href="index.html" class="nav-link active">首頁</a>
+      <a href="about.html" class="nav-link">品牌介紹</a>
+      <a href="entrance-door.html" class="nav-link">玄關門系列</a>
+      <a href="door-flower.html" class="nav-link">門花系列</a>
+      <a href="door-lock.html" class="nav-link">門鎖系列</a>
+      <a href="cases.html" class="nav-link">案例分享</a>
+      <a href="contact.html" class="nav-link">聯繫我們</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-image">
+      <div class="hero-track">
+        <div class="hero-slide"><img src="assets/hero-bg.jpg" alt="國堡門"></div>
+        <div class="hero-slide"><img src="assets/silde/1.jpg" alt="案例 1"></div>
+        <div class="hero-slide"><img src="assets/silde/2.jpg" alt="案例 2"></div>
+        <div class="hero-slide"><img src="assets/silde/3.jpg" alt="案例 3"></div>
+      </div>
+      <div class="hero-overlay">
+        <span class="hero-en">GUOBAO</span>
+        <h1 class="hero-zh">國 堡 門</h1>
+        <p class="hero-slogan">匠心獨具，為每一扇門注入靈魂</p>
+      </div>
+      <button class="hero-arrow hero-prev" onclick="heroSlide(-1)">&#10094;</button>
+      <button class="hero-arrow hero-next" onclick="heroSlide(1)">&#10095;</button>
+      <div class="hero-dots" id="heroDots"></div>
+    </div>
+  </section>
+
+  <!-- Products Section: sticky fullscreen scroll -->
+  <div class="products-scroll" id="products">
+    <div class="products-sticky">
+      <!-- Top pill tabs (series switcher) -->
+      <div class="products-tabs" id="productsTabs">
+        <!-- Skeleton tabs -->
+        <span class="skeleton shimmer tab-skeleton"></span>
+        <span class="skeleton shimmer tab-skeleton"></span>
+        <span class="skeleton shimmer tab-skeleton"></span>
+      </div>
+      <!-- Main content: left product list + right detail -->
+      <div class="products-body">
+        <div class="products-sidebar" id="productsSidebar">
+          <!-- Skeleton thumbs (removed by JS) -->
+          <div class="sidebar-group active skeleton-group">
+            <div class="skeleton shimmer thumb-skeleton"></div>
+            <div class="skeleton shimmer thumb-skeleton"></div>
+            <div class="skeleton shimmer thumb-skeleton"></div>
+          </div>
+        </div>
+        <div class="products-detail" id="productsDetail">
+          <div class="skeleton shimmer detail-skeleton"></div>
+          <img src="assets/door/01.jpg" alt="古典雕花門">
+          <div class="detail-overlay">
+            <h3 class="detail-title"></h3>
+            <span class="detail-link">查看詳情 →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile: product card list -->
+  <div class="products-mobile" id="productsMobile"></div>
+
+  <!-- Mobile Modal -->
+  <div class="product-modal" id="productModal">
+    <div class="product-modal-backdrop" onclick="closeProductModal()"></div>
+    <div class="product-modal-content">
+      <button class="modal-close" onclick="closeProductModal()">&times;</button>
+      <img class="modal-img" src="" alt="">
+      <div class="modal-body">
+        <h3 class="modal-title"></h3>
+        <a class="modal-link" href="">瀏覽系列 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Detail Modal -->
+  <div class="detail-modal" id="detailModal">
+    <div class="detail-modal-backdrop" onclick="closeDetailModal()"></div>
+    <div class="detail-modal-content">
+      <button class="detail-modal-close" onclick="closeDetailModal()">&times;</button>
+      <div class="detail-modal-header">
+        <img class="detail-modal-img" src="" alt="">
+        <div class="detail-modal-info">
+          <h2 class="detail-modal-name"></h2>
+          <div class="detail-modal-style"></div>
+        </div>
+      </div>
+      <div class="detail-modal-body">
+        <div class="detail-modal-section detail-modal-features">
+          <h3>特色</h3>
+          <p></p>
+        </div>
+        <div class="detail-modal-section detail-modal-locks">
+          <h3>門鎖</h3>
+          <p></p>
+        </div>
+        <div class="detail-modal-section detail-modal-pricing">
+          <h3>規格與價格</h3>
+          <div class="detail-modal-table-wrap">
+            <table class="detail-modal-table">
+              <thead></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="detail-modal-section detail-modal-notes">
+          <ul></ul>
+        </div>
+        <div class="detail-modal-section detail-modal-desc">
+          <div class="detail-modal-md"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Side Enclosures -->
+  <section class="enclosures" id="projects">
+    <div class="enclosures-mosaic">
+      <div class="mosaic-grid">
+        <div class="enclosure-img"><img src="assets/silde/1.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/2.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/3.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/4.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/5.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/6.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/1.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/2.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/3.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/4.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/5.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/6.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/1.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/2.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/3.jpg" alt="案例"></div>
+        <div class="enclosure-img"><img src="assets/silde/4.jpg" alt="案例"></div>
+      </div>
+    </div>
+    <div class="enclosures-overlay"></div>
+    <a href="cases.html" class="enclosures-text">
+      <h2 class="section-title">案例分享</h2>
+      <p class="section-subtitle">精選客戶實裝案例，感受國堡門為居家空間帶來的質感提升</p>
+      <span class="enclosures-more">查看更多 &rarr;</span>
+    </a>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h3 class="footer-title">門市資訊</h3>
+    <p class="footer-subtitle">找到離您最近的國堡門門市</p>
+    <div class="store-map-layout">
+      <div class="store-list">
+        <button class="store-item" data-store="0">
+          <h4>永和門市</h4>
+          <p>新北市永和區仁愛路166號1樓</p>
+          <p class="store-tel">TEL：02-8923-0772</p>
+        </button>
+        <button class="store-item" data-store="1">
+          <h4>蘆洲門市</h4>
+          <p>新北市蘆洲區中山一路80號1樓</p>
+          <p class="store-tel">TEL：02-2848-7783</p>
+        </button>
+        <button class="store-item" data-store="2">
+          <h4>信義門市</h4>
+          <p>臺北市基隆路二段215號1樓</p>
+          <p class="store-tel">TEL：02-8732-8128</p>
+        </button>
+        <button class="store-item" data-store="3">
+          <h4>建國門市</h4>
+          <p>臺北市建國北路三段169號1樓</p>
+          <p class="store-tel">TEL：02-2501-6706</p>
+        </button>
+        <button class="store-item" data-store="4">
+          <h4>桃園門市</h4>
+          <p>桃園市桃園區經國路695號1樓</p>
+          <p class="store-tel">TEL：03-325-9837</p>
+        </button>
+        <button class="store-item" data-store="5">
+          <h4>宜蘭門市</h4>
+          <p>宜蘭縣美功路一段41巷22號1樓</p>
+          <p class="store-tel">TEL：03-9301487</p>
+        </button>
+      </div>
+      <div class="store-map" id="storeMap"></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-left">
+        <h4>國堡門</h4>
+        <p>門，是家的第一道防線、是玄關的一抹藝術，是主人的氣度與品味</p>
+        <span class="footer-copy">&copy; 2026 國堡門. All rights reserved.</span>
+      </div>
+      <div class="footer-right">
+        <a href="index.html">首頁</a>
+        <a href="about.html">品牌介紹</a>
+        <a href="entrance-door.html">玄關門系列</a>
+        <a href="door-flower.html">門花系列</a>
+        <a href="door-lock.html">門鎖系列</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== Hero Carousel =====
+    const heroTrack = document.querySelector('.hero-track');
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.getElementById('heroDots');
+    let heroIdx = 0;
+    let heroTimer;
+
+    // Build dots
+    heroSlides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => heroGo(i));
+      heroDots.appendChild(dot);
+    });
+
+    function heroGo(idx) {
+      heroIdx = (idx + heroSlides.length) % heroSlides.length;
+      heroTrack.style.transform = 'translateX(-' + (heroIdx * 100) + '%)';
+      heroDots.querySelectorAll('.hero-dot').forEach((d, i) => d.classList.toggle('active', i === heroIdx));
+      resetHeroTimer();
+    }
+
+    function heroSlide(dir) {
+      heroGo(heroIdx + dir);
+    }
+
+    function resetHeroTimer() {
+      clearInterval(heroTimer);
+      heroTimer = setInterval(() => heroGo(heroIdx + 1), 2500);
+    }
+
+    resetHeroTimer();
+
+    const navbar = document.querySelector('.navbar');
+    const heroImage = document.querySelector('.hero-image');
+    const heroSection = document.querySelector('.hero');
+
+    const targetRadius = 16;
+    const scrollDistance = 300;
+
+    function onScroll() {
+      const w = window.innerWidth;
+      const isMobile = w <= 768;
+      const targetH = isMobile ? 350 : 500;
+      // Match the products-body padding (40px desktop, 20px mobile)
+      const targetPad = isMobile ? 20 : 40;
+      const startH = window.innerHeight;
+
+      const scrollY = window.scrollY;
+      const progress = Math.min(scrollY / scrollDistance, 1);
+
+      const currentH = startH - (startH - targetH) * progress;
+      const currentPad = targetPad * progress;
+      const currentRadius = targetRadius * progress;
+      const bottomPad = 0;
+
+      heroImage.style.height = currentH + 'px';
+      heroSection.style.padding = '0 ' + currentPad + 'px ' + bottomPad + 'px';
+      heroImage.style.borderRadius = currentRadius + 'px';
+
+      // Show navbar only when hero is fully scrolled past
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      const pastHero = heroBottom <= 0;
+
+      if (!pastHero) {
+        // Still in hero — always hide
+        navbar.classList.remove('visible');
+        navbar.classList.remove('open');
+        document.querySelector('.nav-overlay').classList.remove('show');
+      } else if (window.innerWidth <= 768) {
+        // Mobile: only show on scroll up
+        if (window.scrollY < lastScrollY) {
+          navbar.classList.add('visible');
+        } else {
+          navbar.classList.remove('visible');
+          navbar.classList.remove('open');
+          document.querySelector('.nav-overlay').classList.remove('show');
+        }
+      } else {
+        // Desktop: always show after hero
+        navbar.classList.add('visible');
+      }
+
+      lastScrollY = window.scrollY;
+    }
+
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    function toggleMenu() {
+      navbar.classList.toggle('open');
+      document.querySelector('.nav-overlay').classList.toggle('show');
+    }
+
+    // ===== Product Data (loaded from JSON) =====
+    let seriesData = [];
+    let currentSeries = 0;
+    let currentProduct = 0;
+    const productsScroll = document.querySelector('.products-scroll');
+    const sidebar = document.getElementById('productsSidebar');
+    const detail = document.getElementById('productsDetail');
+    const tabsContainer = document.getElementById('productsTabs');
+    const mobileContainer = document.getElementById('productsMobile');
+    let sidebarGroups = [];
+    let isSwitching = false;
+
+    async function loadProductData() {
+      // Fetch series list
+      const seriesList = await fetch('data/series.json').then(r => r.json());
+
+      // Fetch all products in parallel
+      const productFetches = seriesList.map(s =>
+        fetch('data/' + s.key + '/products.json').then(r => r.json())
+      );
+      const allProducts = await Promise.all(productFetches);
+
+      // Build seriesData (skip series with no products)
+      seriesData = seriesList
+        .map((s, i) => ({
+          key: s.key,
+          label: s.label,
+          link: s.link,
+          products: allProducts[i]
+        }))
+        .filter(s => s.products.length > 0);
+
+      // Build UI
+      if (seriesData.length > 0) buildProductsUI();
+    }
+
+    function buildProductsUI() {
+      // Build pill tabs
+      tabsContainer.innerHTML = '';
+      seriesData.forEach((s, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'product-tab' + (i === 0 ? ' active' : '');
+        btn.textContent = s.label;
+        btn.addEventListener('click', () => switchSeries(i));
+        tabsContainer.appendChild(btn);
+      });
+
+      // Remove skeleton sidebar
+      const skeletonGroup = sidebar.querySelector('.skeleton-group');
+      if (skeletonGroup) skeletonGroup.remove();
+
+      // Pre-build all series sidebars
+      sidebarGroups = [];
+      seriesData.forEach((s, si) => {
+        const group = document.createElement('div');
+        group.className = 'sidebar-group' + (si === 0 ? ' active' : '');
+        s.products.forEach((p, pi) => {
+          const btn = document.createElement('button');
+          btn.className = 'sidebar-thumb' + (si === 0 && pi === 0 ? ' active' : '');
+          btn.innerHTML = '<img src="' + p.img + '" alt="' + p.name + '"><span>' + p.name + '</span>';
+          btn.addEventListener('click', () => {
+            isSwitching = true;
+            currentProduct = pi;
+            updateDetail();
+            highlightSidebar(false);
+            scrollToProductIdxInstant(pi);
+            requestAnimationFrame(() => { isSwitching = false; });
+          });
+          group.appendChild(btn);
+        });
+        sidebar.appendChild(group);
+        sidebarGroups.push(group);
+      });
+
+      // Build mobile cards
+      mobileContainer.innerHTML = '';
+      seriesData.forEach((s, si) => {
+        const a = document.createElement('a');
+        a.className = 'mobile-product-card';
+        a.href = s.link;
+        a.innerHTML = '<img src="' + s.products[0].img + '" alt="' + s.label + '"><span class="mobile-product-label">' + s.label + '</span>';
+        mobileContainer.appendChild(a);
+      });
+
+      // Initialize
+      updateDetail();
+      updateScrollHeight();
+      document.querySelector('.products-sticky').classList.add('loaded');
+    }
+
+    // Load data and init
+    loadProductData();
+
+    function switchSeries(idx) {
+      if (idx === currentSeries) return;
+      isSwitching = true;
+      currentSeries = idx;
+      currentProduct = 0;
+
+      // Hide sidebar & detail instantly to prevent flash
+      sidebar.style.opacity = '0';
+      detail.style.opacity = '0';
+
+      // Jump to top of section INSTANTLY (no smooth scroll = no crazy jumping)
+      window.scrollTo({ top: productsScroll.offsetTop, behavior: 'instant' });
+
+      // Reset sidebar scroll
+      sidebar.scrollTop = 0;
+
+      // Switch content
+      sidebarGroups.forEach((g, i) => g.classList.toggle('active', i === idx));
+      highlightSidebar(false);
+      updateDetail();
+      updateScrollHeight();
+      tabsContainer.querySelectorAll('.product-tab').forEach((t, i) => {
+        t.classList.toggle('active', i === idx);
+      });
+
+      // Wait one frame for layout, then fade in
+      requestAnimationFrame(() => {
+        sidebar.style.opacity = '1';
+        detail.style.opacity = '1';
+        isSwitching = false;
+      });
+    }
+
+    function highlightSidebar(smooth) {
+      const group = sidebarGroups[currentSeries];
+      group.querySelectorAll('.sidebar-thumb').forEach((t, i) => {
+        t.classList.toggle('active', i === currentProduct);
+      });
+      const active = group.querySelector('.sidebar-thumb.active');
+      if (active) active.scrollIntoView({ block: 'nearest', behavior: smooth ? 'smooth' : 'instant' });
+    }
+
+    function updateDetail() {
+      const p = seriesData[currentSeries].products[currentProduct];
+      const img = detail.querySelector('img');
+      const title = detail.querySelector('.detail-title');
+      img.src = p.img;
+      img.alt = p.name;
+      title.textContent = p.name;
+    }
+
+    function updateScrollHeight() {
+      const count = seriesData[currentSeries].products.length;
+      productsScroll.style.height = (count * 100) + 'vh';
+    }
+
+    function onProductsScroll() {
+      if (!productsScroll || window.innerWidth <= 768 || isSwitching || seriesData.length === 0) return;
+      const rect = productsScroll.getBoundingClientRect();
+      const scrolled = -rect.top;
+      const totalScroll = productsScroll.offsetHeight - window.innerHeight;
+      if (scrolled < 0 || totalScroll <= 0) return;
+      const products = seriesData[currentSeries].products;
+      const progress = Math.min(scrolled / totalScroll, 1);
+      const idx = Math.min(Math.floor(progress * products.length), products.length - 1);
+      if (idx !== currentProduct) {
+        currentProduct = idx;
+        updateDetail();
+        highlightSidebar(false);
+      }
+    }
+
+    function scrollToProductIdx(idx) {
+      if (!productsScroll) return;
+      const products = seriesData[currentSeries].products;
+      const totalScroll = productsScroll.offsetHeight - window.innerHeight;
+      const targetScroll = productsScroll.offsetTop + (idx / products.length) * totalScroll;
+      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    }
+
+    function scrollToProductIdxInstant(idx) {
+      if (!productsScroll) return;
+      const products = seriesData[currentSeries].products;
+      const totalScroll = productsScroll.offsetHeight - window.innerHeight;
+      const targetScroll = productsScroll.offsetTop + (idx / products.length) * totalScroll;
+      window.scrollTo({ top: targetScroll, behavior: 'instant' });
+    }
+
+    let scrollTicking = false;
+    window.removeEventListener('scroll', onScroll);
+    window.addEventListener('scroll', () => {
+      onScroll();
+      if (!scrollTicking) {
+        scrollTicking = true;
+        requestAnimationFrame(() => {
+          onProductsScroll();
+          scrollTicking = false;
+        });
+      }
+    });
+
+    // (initialization moved into buildProductsUI)
+
+    // ===== Mobile Product Modal =====
+    function openProductModal(seriesIdx, productIdx) {
+      const s = seriesData[seriesIdx];
+      const p = s.products[productIdx];
+      const modal = document.getElementById('productModal');
+      modal.querySelector('.modal-img').src = p.img;
+      modal.querySelector('.modal-title').textContent = p.name;
+      modal.querySelector('.modal-link').href = s.link;
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    // ===== Detail Modal =====
+    const detailModal = document.getElementById('detailModal');
+
+    function openDetailModal() {
+      const p = seriesData[currentSeries].products[currentProduct];
+      const d = p.detail || {};
+      const modal = detailModal;
+
+      modal.querySelector('.detail-modal-img').src = p.img;
+      modal.querySelector('.detail-modal-img').alt = p.name;
+      modal.querySelector('.detail-modal-name').textContent = p.name;
+
+      // Style
+      const styleEl = modal.querySelector('.detail-modal-style');
+      styleEl.innerHTML = d.style ? d.style.replace(/\n/g, '<br>') : '';
+      styleEl.style.display = d.style ? '' : 'none';
+
+      // Features
+      const featSection = modal.querySelector('.detail-modal-features');
+      if (d.features) {
+        featSection.style.display = '';
+        featSection.querySelector('p').innerHTML = d.features.replace(/\n/g, '<br>');
+      } else {
+        featSection.style.display = 'none';
+      }
+
+      // Locks
+      const lockSection = modal.querySelector('.detail-modal-locks');
+      if (d.locks) {
+        lockSection.style.display = '';
+        lockSection.querySelector('p').innerHTML = d.locks.replace(/\n/g, '<br>');
+      } else {
+        lockSection.style.display = 'none';
+      }
+
+      // Table
+      const pricingSection = modal.querySelector('.detail-modal-pricing');
+      if (d.tableHead && d.tableBody) {
+        pricingSection.style.display = '';
+        const thead = modal.querySelector('.detail-modal-table thead');
+        const tbody = modal.querySelector('.detail-modal-table tbody');
+        thead.innerHTML = '<tr>' + d.tableHead.map(h => '<th>' + h + '</th>').join('') + '</tr>';
+        tbody.innerHTML = d.tableBody.map(row => '<tr>' + row.map(c => '<td>' + c + '</td>').join('') + '</tr>').join('');
+      } else {
+        pricingSection.style.display = 'none';
+      }
+
+      // Notes
+      const notesSection = modal.querySelector('.detail-modal-notes');
+      if (d.notes && d.notes.length) {
+        notesSection.style.display = '';
+        notesSection.querySelector('ul').innerHTML = d.notes.map(n => '<li>' + n + '</li>').join('');
+      } else {
+        notesSection.style.display = 'none';
+      }
+
+      // Markdown description
+      const descSection = modal.querySelector('.detail-modal-desc');
+      if (d.description) {
+        descSection.style.display = '';
+        descSection.querySelector('.detail-modal-md').innerHTML = typeof marked !== 'undefined' ? marked.parse(d.description) : d.description;
+      } else {
+        descSection.style.display = 'none';
+      }
+
+      // Hide body if all sections are hidden
+      const bodyEl = modal.querySelector('.detail-modal-body');
+      const allHidden = Array.from(bodyEl.querySelectorAll('.detail-modal-section')).every(s => s.style.display === 'none');
+      bodyEl.style.display = allHidden ? 'none' : '';
+
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDetailModal() {
+      detailModal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    // Wire up entire detail area click
+    document.getElementById('productsDetail').addEventListener('click', openDetailModal);
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && detailModal.classList.contains('show')) {
+        closeDetailModal();
+      }
+    });
+  </script>
+
+  <script>
+    // ===== Store Map =====
+    const stores = [
+      { name: '永和門市', addr: '新北市永和區仁愛路166號1樓', lat: 25.0095, lng: 121.5135 },
+      { name: '蘆洲門市', addr: '新北市蘆洲區中山一路80號1樓', lat: 25.0850, lng: 121.4730 },
+      { name: '信義門市', addr: '臺北市基隆路二段215號1樓', lat: 25.0265, lng: 121.5570 },
+      { name: '建國門市', addr: '臺北市建國北路三段169號1樓', lat: 25.0690, lng: 121.5370 },
+      { name: '桃園門市', addr: '桃園市桃園區經國路695號1樓', lat: 25.0050, lng: 121.3005 },
+      { name: '宜蘭門市', addr: '宜蘭縣美功路一段41巷22號1樓', lat: 24.7520, lng: 121.7530 },
+    ];
+
+    const storeMap = document.getElementById('storeMap');
+    const storeItems = document.querySelectorAll('.store-item');
+
+    // Default: show all stores overview
+    function showAllStores() {
+      // Show overview of northern Taiwan area covering all store locations
+      storeMap.innerHTML = '<iframe src="https://www.google.com/maps?q=國堡門&z=10&ll=25.0,121.45&output=embed" width="100%" height="100%" style="border:0;border-radius:15px;" allowfullscreen loading="lazy"></iframe>';
+      storeItems.forEach(item => item.classList.remove('active'));
+    }
+
+    function showStore(idx) {
+      const s = stores[idx];
+      const q = encodeURIComponent(s.addr);
+      storeMap.innerHTML = '<iframe src="https://www.google.com/maps?q=' + q + '&output=embed&z=17" width="100%" height="100%" style="border:0;border-radius:15px;" allowfullscreen loading="lazy"></iframe>';
+      storeItems.forEach((item, i) => item.classList.toggle('active', i === idx));
+    }
+
+    storeItems.forEach((item, i) => {
+      item.addEventListener('click', () => showStore(i));
+    });
+
+    // Show all stores overview by default
+    showAllStores();
+    storeItems.forEach(item => item.classList.remove('active'));
+  </script>
+
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    const btt = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('show', window.scrollY > 300);
+    });
+  </script>
+
+</body>
+</html>

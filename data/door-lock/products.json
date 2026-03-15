@@ -1,0 +1,10 @@
+[
+  { "name": "COE 3段鎖", "img": "data/door-lock/images/coe-3.jpg" },
+  { "name": "COE 5段鎖", "img": "data/door-lock/images/coe-5.jpg" },
+  { "name": "COE 5段鎖（紅）", "img": "data/door-lock/images/coe-5-red.jpg" },
+  { "name": "COE 5段鎖（金）", "img": "data/door-lock/images/coe-5-gold.jpg" },
+  { "name": "Yale 電子鎖 7116A（消光黑）", "img": "data/door-lock/images/yale-7116a-black.jpg" },
+  { "name": "Yale 電子鎖 7116A（玫瑰金）", "img": "data/door-lock/images/yale-7116a-rose.jpg" },
+  { "name": "Yale 電子鎖 7216A（個性金）", "img": "data/door-lock/images/yale-7216a-gold.jpg" },
+  { "name": "Yale 電子鎖 4109A", "img": "data/door-lock/images/yale-4109a.jpg" }
+]

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>門鎖系列 - 國堡門</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="nav-overlay" onclick="toggleMenu()"></div>
+  <nav class="navbar visible">
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">首頁</a>
+      <a href="about.html" class="nav-link">品牌介紹</a>
+      <a href="entrance-door.html" class="nav-link">玄關門系列</a>
+      <a href="door-flower.html" class="nav-link">門花系列</a>
+      <a href="door-lock.html" class="nav-link">門鎖系列</a>
+      <a href="cases.html" class="nav-link">案例分享</a>
+      <a href="contact.html" class="nav-link">聯繫我們</a>
+    </div>
+  </nav>
+
+  <!-- Product Hero -->
+  <section class="product-hero" style="background-image: url('data/door-lock/bannar.jpg');">
+    <span class="product-hero-sub">產品系列</span>
+    <h1>門鎖系列</h1>
+    <p>安全與美感兼具的門鎖，守護您的居家安全</p>
+  </section>
+
+  <!-- Podium: Top 3 -->
+  <section class="podium-section">
+    <h2 class="section-title">熱銷排行</h2>
+    <p class="podium-tagline">平均每 30 秒賣出一組・連續 5 年銷量冠軍</p>
+    <div class="podium-grid" id="podiumGrid"></div>
+  </section>
+
+  <!-- Product Gallery (auto-loaded from JSON) -->
+  <section class="product-gallery">
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <script>
+    fetch('data/door-lock/products.json')
+      .then(r => r.json())
+      .then(products => {
+        const podiumOrder = [1, 0, 2];
+        const ranks = ['gold','silver','bronze'];
+        const nums = [3.2, 2.6, 1.9];
+        const dispNums = [32000, 26000, 19000];
+        const podiumGrid = document.getElementById('podiumGrid');
+
+        podiumOrder.forEach(origIdx => {
+          const p = products[origIdx];
+          const rank = ranks[origIdx];
+          const card = document.createElement('div');
+          card.className = 'podium-card podium-' + rank;
+          card.innerHTML = '<div class="podium-img"><img src="' + p.img + '" alt="' + p.name + '"></div>'
+            + '<h3>' + p.name + '</h3>'
+          var standContent = origIdx === 0
+            ? '<span class="podium-stand-label">年銷</span><span class="podium-stand-num">' + dispNums[origIdx] + '+</span>'
+            : '<span class="podium-stand-label">熱銷</span><span class="podium-stand-num">No.' + (origIdx + 1) + '</span>';
+          card.innerHTML += '<div class="podium-stand podium-stand-' + rank + '" style="height:' + (nums[origIdx] / 3.2 * 140) + 'px">' + standContent + '</div>';
+          podiumGrid.appendChild(card);
+        });
+
+        const grid = document.getElementById('galleryGrid');
+        products.forEach((p, i) => {
+          if (i < 3) return;
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          item.innerHTML = '<div class="gallery-img"><img src="' + p.img + '" alt="' + p.name + '"></div><h3>' + p.name + '</h3>';
+          grid.appendChild(item);
+        });
+      });
+  </script>
+
+  <!-- Other Series -->
+  <section class="other-series">
+    <h2 class="section-title">其他系列</h2>
+    <div class="other-series-grid">
+      <a href="door-flower.html" class="other-series-card">
+        <img src="assets/type/1.jpg" alt="門花系列">
+        <span>門花系列</span>
+      </a>
+      <a href="entrance-door.html" class="other-series-card">
+        <img src="assets/type/2.jpg" alt="玄關門系列">
+        <span>玄關門系列</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="footer-left">
+        <h4>國堡門</h4>
+        <p>門，是家的第一道防線、是玄關的一抹藝術，是主人的氣度與品味</p>
+        <span class="footer-copy">&copy; 2026 國堡門. All rights reserved.</span>
+      </div>
+      <div class="footer-right">
+        <a href="index.html">首頁</a>
+        <a href="about.html">品牌介紹</a>
+        <a href="door-flower.html">門花系列</a>
+        <a href="entrance-door.html">玄關門系列</a>
+        <a href="door-lock.html">門鎖系列</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    const btt = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('show', window.scrollY > 300);
+    });
+  </script>
+
+</body>
+</html>

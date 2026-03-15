@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聯繫我們 - 國堡門</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="nav-overlay" onclick="toggleMenu()"></div>
+  <nav class="navbar visible">
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">首頁</a>
+      <a href="about.html" class="nav-link">品牌介紹</a>
+      <a href="entrance-door.html" class="nav-link">玄關門系列</a>
+      <a href="door-flower.html" class="nav-link">門花系列</a>
+      <a href="door-lock.html" class="nav-link">門鎖系列</a>
+      <a href="cases.html" class="nav-link">案例分享</a>
+      <a href="contact.html" class="nav-link active">聯繫我們</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="brand-hero" style="background-image: url('assets/silde/2.jpg');">
+    <span class="brand-hero-en">Contact Us</span>
+    <h1>聯繫我們</h1>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-wrapper">
+
+      <!-- Form -->
+      <div class="contact-form-area">
+        <h2>填寫表單</h2>
+        <p class="contact-form-desc">歡迎您留下訊息，我們將盡快與您聯繫</p>
+        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName">姓名 *</label>
+              <input type="text" id="contactName" name="name" required placeholder="請輸入您的姓名">
+            </div>
+            <div class="form-group">
+              <label for="contactPhone">聯絡電話 *</label>
+              <input type="tel" id="contactPhone" name="phone" required placeholder="請輸入您的電話">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">電子信箱</label>
+            <input type="email" id="contactEmail" name="email" placeholder="請輸入您的 Email">
+          </div>
+          <div class="form-group">
+            <label for="contactSubject">主旨</label>
+            <select id="contactSubject" name="subject">
+              <option value="">請選擇諮詢項目</option>
+              <option value="玄關門系列">玄關門系列</option>
+              <option value="門花系列">門花系列</option>
+              <option value="門鎖系列">門鎖系列</option>
+              <option value="售後服務">售後服務</option>
+              <option value="其他">其他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contactMsg">留言內容 *</label>
+            <textarea id="contactMsg" name="message" rows="5" required placeholder="請輸入您想諮詢的內容"></textarea>
+          </div>
+          <button type="submit" class="contact-submit">送出表單</button>
+        </form>
+        <div class="contact-success" id="contactSuccess">
+          <span class="success-icon">✓</span>
+          <h3>感謝您的來信</h3>
+          <p>我們已收到您的訊息，將於 1-2 個工作天內回覆您。</p>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="contact-info-area">
+        <h2>聯絡資訊</h2>
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <h4>聯絡電話</h4>
+              <p>02-2901-8888</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <h4>電子信箱</h4>
+              <p>service@gbdoor.com.tw</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4>營業時間</h4>
+              <p>週一至週五 09:00 - 18:00<br>週六 10:00 - 16:00（週日公休）</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Store Info -->
+  <section class="contact-stores">
+    <h2 class="section-title">門市資訊</h2>
+    <p class="contact-stores-sub">找到離您最近的國堡門門市</p>
+    <div class="store-map-layout">
+      <div class="store-list">
+        <button class="store-item" data-store="0">
+          <h4>永和門市</h4>
+          <p>新北市永和區仁愛路166號1樓</p>
+          <p class="store-tel">TEL：02-8923-0772</p>
+        </button>
+        <button class="store-item" data-store="1">
+          <h4>蘆洲門市</h4>
+          <p>新北市蘆洲區中山一路80號1樓</p>
+          <p class="store-tel">TEL：02-2848-7783</p>
+        </button>
+        <button class="store-item" data-store="2">
+          <h4>信義門市</h4>
+          <p>臺北市基隆路二段215號1樓</p>
+          <p class="store-tel">TEL：02-8732-8128</p>
+        </button>
+        <button class="store-item" data-store="3">
+          <h4>建國門市</h4>
+          <p>臺北市建國北路三段169號1樓</p>
+          <p class="store-tel">TEL：02-2501-6706</p>
+        </button>
+        <button class="store-item" data-store="4">
+          <h4>桃園門市</h4>
+          <p>桃園市桃園區經國路695號1樓</p>
+          <p class="store-tel">TEL：03-325-9837</p>
+        </button>
+        <button class="store-item" data-store="5">
+          <h4>宜蘭門市</h4>
+          <p>宜蘭縣美功路一段41巷22號1樓</p>
+          <p class="store-tel">TEL：03-9301487</p>
+        </button>
+      </div>
+      <div class="store-map" id="storeMap"></div>
+    </div>
+  </section>
+
+  <script>
+    const stores = [
+      { name: '永和門市', addr: '新北市永和區仁愛路166號1樓' },
+      { name: '蘆洲門市', addr: '新北市蘆洲區中山一路80號1樓' },
+      { name: '信義門市', addr: '臺北市基隆路二段215號1樓' },
+      { name: '建國門市', addr: '臺北市建國北路三段169號1樓' },
+      { name: '桃園門市', addr: '桃園市桃園區經國路695號1樓' },
+      { name: '宜蘭門市', addr: '宜蘭縣美功路一段41巷22號1樓' },
+    ];
+    const storeMap = document.getElementById('storeMap');
+    const storeItems = document.querySelectorAll('.store-item');
+
+    function showAllStores() {
+      storeMap.innerHTML = '<iframe src="https://www.google.com/maps?q=國堡門&z=10&ll=25.0,121.45&output=embed" width="100%" height="100%" style="border:0;border-radius:15px;" allowfullscreen loading="lazy"></iframe>';
+      storeItems.forEach(item => item.classList.remove('active'));
+    }
+
+    function showStore(idx) {
+      const s = stores[idx];
+      const q = encodeURIComponent(s.addr);
+      storeMap.innerHTML = '<iframe src="https://www.google.com/maps?q=' + q + '&output=embed&z=17" width="100%" height="100%" style="border:0;border-radius:15px;" allowfullscreen loading="lazy"></iframe>';
+      storeItems.forEach((item, i) => item.classList.toggle('active', i === idx));
+    }
+
+    storeItems.forEach((item, i) => {
+      item.addEventListener('click', () => showStore(i));
+    });
+
+    showAllStores();
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="footer-left">
+        <h4>國堡門</h4>
+        <p>門，是家的第一道防線、是玄關的一抹藝術，是主人的氣度與品味</p>
+        <span class="footer-copy">&copy; 2026 國堡門. All rights reserved.</span>
+      </div>
+      <div class="footer-right">
+        <a href="index.html">首頁</a>
+        <a href="about.html">品牌介紹</a>
+        <a href="door-flower.html">門花系列</a>
+        <a href="entrance-door.html">玄關門系列</a>
+        <a href="door-lock.html">門鎖系列</a>
+        <a href="contact.html">聯繫我們</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.querySelector('.contact-form-desc').style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'flex';
+    }
+  </script>
+
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    const btt = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('show', window.scrollY > 300);
+    });
+  </script>
+
+</body>
+</html>

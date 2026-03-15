@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>案例分享 - 國堡門</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="nav-overlay" onclick="toggleMenu()"></div>
+  <nav class="navbar">
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-left">
+      <a href="index.html" class="nav-link">首頁</a>
+      <a href="about.html" class="nav-link">品牌介紹</a>
+      <a href="entrance-door.html" class="nav-link">玄關門系列</a>
+      <a href="door-flower.html" class="nav-link">門花系列</a>
+      <a href="door-lock.html" class="nav-link">門鎖系列</a>
+      <a href="cases.html" class="nav-link active">案例分享</a>
+      <a href="contact.html" class="nav-link">聯繫我們</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="product-hero" style="background-image: url('assets/silde/3.jpg');">
+    <span class="product-hero-sub">Case Studies</span>
+    <h1>案例分享</h1>
+    <p>精選客戶實裝案例，感受國堡門為居家空間帶來的質感提升</p>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="cases-stats">
+    <div class="cases-stat">
+      <span class="cases-stat-num">150+</span>
+      <span class="cases-stat-label">完工案例</span>
+    </div>
+    <div class="cases-stat">
+      <span class="cases-stat-num">98%</span>
+      <span class="cases-stat-label">客戶滿意度</span>
+    </div>
+    <div class="cases-stat">
+      <span class="cases-stat-num">6</span>
+      <span class="cases-stat-label">服務據點</span>
+    </div>
+    <div class="cases-stat">
+      <span class="cases-stat-num">20+</span>
+      <span class="cases-stat-label">年專業經驗</span>
+    </div>
+  </section>
+
+  <!-- Filter + Gallery -->
+  <section class="cases-section">
+    <div class="cases-filters">
+      <button class="cases-filter active" data-filter="all">全部</button>
+      <button class="cases-filter" data-filter="entrance">玄關門</button>
+      <button class="cases-filter" data-filter="flower">門花</button>
+      <button class="cases-filter" data-filter="lock">門鎖</button>
+    </div>
+
+    <div class="cases-grid" id="casesGrid">
+      <!-- Case 1 -->
+      <div class="case-card" data-category="entrance">
+        <div class="case-img">
+          <img src="assets/silde/1.jpg" alt="台北信義區陳宅">
+          <span class="case-tag">玄關門</span>
+        </div>
+        <div class="case-info">
+          <h3>台北信義區 陳宅</h3>
+          <p>採用菱格紋玄關門搭配現代風格客廳，打造大器沉穩的入門印象。</p>
+          <div class="case-meta">
+            <span>2025 年 11 月</span>
+            <span>玄關門系列</span>
+          </div>
+        </div>
+      </div>
+      <!-- Case 2 -->
+      <div class="case-card" data-category="entrance">
+        <div class="case-img">
+          <img src="assets/silde/2.jpg" alt="新北蘆洲林宅">
+          <span class="case-tag">玄關門</span>
+        </div>
+        <div class="case-info">
+          <h3>新北蘆洲 林宅</h3>
+          <p>簡約直線紋路玄關門，與石材外牆完美融合，展現俐落質感。</p>
+          <div class="case-meta">
+            <span>2025 年 10 月</span>
+            <span>玄關門系列</span>
+          </div>
+        </div>
+      </div>
+      <!-- Case 3 -->
+      <div class="case-card" data-category="flower">
+        <div class="case-img">
+          <img src="assets/silde/3.jpg" alt="台北大安區黃宅">
+          <span class="case-tag">門花</span>
+        </div>
+        <div class="case-info">
+          <h3>台北大安區 黃宅</h3>
+          <p>典雅門花搭配深色門扇，壁燈映照下更顯歐式古典韻味。</p>
+          <div class="case-meta">
+            <span>2025 年 9 月</span>
+            <span>門花系列</span>
+          </div>
+        </div>
+      </div>
+      <!-- Case 4 -->
+      <div class="case-card" data-category="lock">
+        <div class="case-img">
+          <img src="assets/silde/4.jpg" alt="新北永和張宅">
+          <span class="case-tag">門鎖</span>
+        </div>
+        <div class="case-info">
+          <h3>新北永和 張宅</h3>
+          <p>智能門鎖搭配斜紋裝飾門扇，兼顧安全與現代感的居家選擇。</p>
+          <div class="case-meta">
+            <span>2025 年 8 月</span>
+            <span>門鎖系列</span>
+          </div>
+        </div>
+      </div>
+      <!-- Case 5 -->
+      <div class="case-card" data-category="flower">
+        <div class="case-img">
+          <img src="assets/silde/5.jpg" alt="桃園中壢王宅">
+          <span class="case-tag">門花</span>
+        </div>
+        <div class="case-info">
+          <h3>桃園中壢 王宅</h3>
+          <p>歐式白色浮雕門花設計，為北歐風居家注入優雅浪漫氛圍。</p>
+          <div class="case-meta">
+            <span>2025 年 7 月</span>
+            <span>門花系列</span>
+          </div>
+        </div>
+      </div>
+      <!-- Case 6 -->
+      <div class="case-card" data-category="lock">
+        <div class="case-img">
+          <img src="assets/silde/6.jpg" alt="宜蘭李宅">
+          <span class="case-tag">門鎖</span>
+        </div>
+        <div class="case-info">
+          <h3>宜蘭 李宅</h3>
+          <p>幾何拼接門面搭配電子鎖，人字拼地板襯托出都會時尚風格。</p>
+          <div class="case-meta">
+            <span>2025 年 6 月</span>
+            <span>門鎖系列</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Story Modal -->
+  <div class="story-modal" id="storyModal">
+    <div class="story-modal-backdrop" onclick="closeStory()"></div>
+    <div class="story-modal-content">
+      <button class="story-modal-close" onclick="closeStory()">&times;</button>
+      <div class="story-hero">
+        <img class="story-hero-img" src="" alt="">
+        <div class="story-hero-overlay">
+          <span class="story-tag"></span>
+          <h1 class="story-title"></h1>
+          <span class="story-date"></span>
+        </div>
+      </div>
+      <div class="story-body">
+        <div class="story-intro"></div>
+        <div class="story-details">
+          <div class="story-detail-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><strong>地點</strong><span class="story-location"></span></div>
+          </div>
+          <div class="story-detail-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <div><strong>施工期間</strong><span class="story-duration"></span></div>
+          </div>
+          <div class="story-detail-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div><strong>屋主</strong><span class="story-owner"></span></div>
+          </div>
+          <div class="story-detail-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <div><strong>產品</strong><span class="story-product"></span></div>
+          </div>
+        </div>
+        <div class="story-content"></div>
+        <div class="story-quote">
+          <span class="story-quote-mark">&ldquo;</span>
+          <p class="story-quote-text"></p>
+          <span class="story-quote-author"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cases-cta">
+    <h2>讓國堡門為您的家注入靈魂</h2>
+    <p>預約免費丈量與諮詢，專業團隊為您量身打造</p>
+    <a href="contact.html" class="cta-btn">聯繫我們</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="footer-left">
+        <h4>國堡門</h4>
+        <p>門，是家的第一道防線、是玄關的一抹藝術，是主人的氣度與品味</p>
+        <span class="footer-copy">&copy; 2026 國堡門. All rights reserved.</span>
+      </div>
+      <div class="footer-right">
+        <a href="index.html">首頁</a>
+        <a href="about.html">品牌介紹</a>
+        <a href="entrance-door.html">玄關門系列</a>
+        <a href="door-flower.html">門花系列</a>
+        <a href="door-lock.html">門鎖系列</a>
+        <a href="cases.html">案例分享</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="nav.js"></script>
+
+  <script>
+    // ===== Case Stories Data =====
+    const caseStories = [
+      {
+        title: '台北信義區 陳宅',
+        tag: '玄關門',
+        date: '2025 年 11 月',
+        img: 'assets/silde/1.jpg',
+        location: '台北市信義區',
+        duration: '約 3 個工作天',
+        owner: '陳先生 & 陳太太',
+        product: '菱格紋雙開玄關門',
+        intro: '陳先生夫婦入住信義區新居時，希望大門能展現低調奢華的氣質，同時兼顧防盜安全性。經過多次諮詢與丈量，最終選擇了國堡門經典的菱格紋玄關門系列。',
+        content: '<p>陳宅位於信義區高樓層，客廳採大面積落地窗設計，室內以暖色調木質地板搭配現代家具。原本的建商標配大門無論是質感還是安全性都無法滿足需求。</p><p>我們的設計師實地勘查後，建議採用霧黑色菱格紋雙開門，不僅與室內的現代風格完美呼應，獨特的菱格紋路更在光線下呈現細膩的層次變化。門鎖方面搭配了四段式防盜鎖，確保居家安全無虞。</p><p>安裝過程僅花了 3 個工作天，包含舊門拆除、門框校正、新門安裝與最終調校。完工後，整個玄關的氛圍煥然一新，成為陳宅最引以為傲的空間亮點。</p>',
+        quote: '每次回家開門的那一刻，都有一種被尊重的儀式感。這扇門不只是門，更是我們家的名片。',
+        quoteAuthor: '— 陳太太'
+      },
+      {
+        title: '新北蘆洲 林宅',
+        tag: '玄關門',
+        date: '2025 年 10 月',
+        img: 'assets/silde/2.jpg',
+        location: '新北市蘆洲區',
+        duration: '約 2 個工作天',
+        owner: '林先生',
+        product: '直線紋路玄關門',
+        intro: '林先生是一位建築師，對於居家門面的要求極為嚴格。他希望大門能與建築外觀的洗石子牆面融為一體，展現專業而俐落的生活態度。',
+        content: '<p>林宅外牆採用質樸的橫紋洗石子設計，原有大門的色調與紋理與外牆格格不入，一直是林先生心中的遺憾。</p><p>在與我們團隊深入討論後，選定了深灰色直線紋路玄關門。垂直的金屬飾條與水平的石材紋理形成對比，卻又在色調上和諧統一。門把採用隱藏式設計，讓整體門面更加簡潔大方。</p><p>林先生特別滿意的是門扇的厚實感與隔音效果，關上門後外界的喧囂便與室內的寧靜徹底隔絕。</p>',
+        quote: '身為建築師，我對細節特別挑剔。國堡門的做工讓我無可挑剔，從收邊到五金件的質感都是一流水準。',
+        quoteAuthor: '— 林先生'
+      },
+      {
+        title: '台北大安區 黃宅',
+        tag: '門花',
+        date: '2025 年 9 月',
+        img: 'assets/silde/3.jpg',
+        location: '台北市大安區',
+        duration: '約 4 個工作天',
+        owner: '黃女士',
+        product: '歐式古典門花搭配深色門扇',
+        intro: '黃女士鍾愛歐式古典風格，她的公寓內裝以深色木質與古銅金屬為主調。她希望玄關門能成為這個風格敘事的起點，讓訪客一進門就能感受到獨特的美學品味。',
+        content: '<p>黃宅的玄關空間較為狹長，兩側牆面以深色木飾板裝飾，搭配復古壁燈營造氛圍。我們為黃女士推薦了帶有精緻門花的深色門扇，門花圖案採用幾何與花卉結合的古典設計。</p><p>門花部分使用了霧面玻璃鑲嵌工藝，既能透光又保有隱私。在壁燈的暖光映照下，門花的立體紋路會投射出美麗的光影，為玄關增添了戲劇性的視覺效果。</p><p>黃女士後來還邀請我們為她的書房門也安裝了同系列的門花設計，讓整個居家風格更加統一。</p>',
+        quote: '朋友來家裡作客，總會在玄關停留讚嘆。這扇門已經成為我家最美的藝術品。',
+        quoteAuthor: '— 黃女士'
+      },
+      {
+        title: '新北永和 張宅',
+        tag: '門鎖',
+        date: '2025 年 8 月',
+        img: 'assets/silde/4.jpg',
+        location: '新北市永和區',
+        duration: '約 3 個工作天',
+        owner: '張先生一家',
+        product: '智能電子鎖搭配斜紋裝飾門',
+        intro: '張先生一家四口，兩個孩子正值學齡期，經常忘記帶鑰匙。加上張先生工作繁忙，需要能遠端管控的智能門鎖系統，同時也不希望犧牲大門的美觀設計。',
+        content: '<p>張宅位於永和的電梯大樓，原本使用傳統機械鎖，孩子放學回家常常要在門口等候。張先生決定趁著室內翻修，一併升級大門與門鎖系統。</p><p>我們為張宅安裝了斜紋裝飾門扇搭配最新一代的智能電子鎖。這款電子鎖支援指紋、密碼、卡片與手機 APP 四種開鎖方式，張先生可以透過手機即時查看開鎖紀錄，也能遠端為訪客開門。</p><p>門扇的斜紋裝飾在光線下呈現獨特的幾何美感，深色門面與木質玄關櫃形成溫暖而有安全感的入門空間。孩子們再也不用擔心忘帶鑰匙，指紋一按就能回家。</p>',
+        quote: '科技讓生活更便利，但國堡門讓我們在便利之餘，也沒有失去對美的追求。孩子們最喜歡用指紋開門的感覺！',
+        quoteAuthor: '— 張先生'
+      },
+      {
+        title: '桃園中壢 王宅',
+        tag: '門花',
+        date: '2025 年 7 月',
+        img: 'assets/silde/5.jpg',
+        location: '桃園市中壢區',
+        duration: '約 3 個工作天',
+        owner: '王太太',
+        product: '歐式白色浮雕門花',
+        intro: '王太太的透天厝以北歐風格裝修，全屋以白色與淺木色為主調。她希望大門能延續這份清新與優雅，又不失門面的氣勢。',
+        content: '<p>王宅是一棟三層樓的透天厝，前院有小花園，整體呈現清新自然的北歐風格。原本的鐵門已經使用超過十年，生鏽與褪色讓整棟房子的質感大打折扣。</p><p>我們為王太太設計了白色浮雕門花門扇，門花的立體浮雕圖案靈感來自古典歐式宮廷風格，但以全白的色調呈現，完美融入北歐風的簡約氛圍。</p><p>浮雕的菱格紋與柔美曲線在白色門面上營造出精緻的陰影層次，無論是晴天的自然光還是夜晚的門廊燈光下，都展現出不同的風情。王太太說這扇門讓她每天回家都有走進歐式莊園的感覺。</p>',
+        quote: '白色的門面讓整棟房子都亮了起來，鄰居都以為我們重新蓋了房子。浮雕的質感真的太精緻了！',
+        quoteAuthor: '— 王太太'
+      },
+      {
+        title: '宜蘭 李宅',
+        tag: '門鎖',
+        date: '2025 年 6 月',
+        img: 'assets/silde/6.jpg',
+        location: '宜蘭縣宜蘭市',
+        duration: '約 2 個工作天',
+        owner: '李先生',
+        product: '幾何拼接門搭配智能鎖',
+        intro: '李先生是一位室內設計師，他的自宅是他最得意的作品。人字拼木地板、清水模牆面、幾何線條——每一處都經過精心設計。大門自然也不能馬虎。',
+        content: '<p>李宅的玄關以人字拼木地板搭配白色儲物櫃，空間雖然不大但處處充滿設計巧思。李先生對於大門的要求很明確：要有強烈的設計感，同時必須搭配智能鎖。</p><p>我們從國堡門的現代系列中，為李先生挑選了幾何拼接設計的門扇。門面以不同深淺的灰色金屬板塊拼接，形成獨特的立體幾何圖案。搭配的智能電子鎖採用隱藏式設計，不破壞門面的整體視覺。</p><p>完工後，這扇門成為李先生在社群媒體上分享最多的居家角落。他說身為設計師，能找到與自己設計理念完全契合的大門，是一件非常幸福的事。</p>',
+        quote: '好的設計是所有細節的總和。國堡門理解設計師的語言，他們不只是做門，更是在做藝術。',
+        quoteAuthor: '— 李先生'
+      }
+    ];
+
+    // ===== Filter =====
+    const filters = document.querySelectorAll('.cases-filter');
+    const cards = document.querySelectorAll('.case-card');
+
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        cards.forEach(card => {
+          if (f === 'all' || card.dataset.category === f) {
+            card.style.display = '';
+            card.style.animation = 'fadeUp 0.4s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // ===== Click card to open story =====
+    cards.forEach((card, i) => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => openStory(i));
+    });
+
+    function openStory(idx) {
+      const s = caseStories[idx];
+      const modal = document.getElementById('storyModal');
+      modal.querySelector('.story-hero-img').src = s.img;
+      modal.querySelector('.story-tag').textContent = s.tag;
+      modal.querySelector('.story-title').textContent = s.title;
+      modal.querySelector('.story-date').textContent = s.date;
+      modal.querySelector('.story-intro').textContent = s.intro;
+      modal.querySelector('.story-location').textContent = s.location;
+      modal.querySelector('.story-duration').textContent = s.duration;
+      modal.querySelector('.story-owner').textContent = s.owner;
+      modal.querySelector('.story-product').textContent = s.product;
+      modal.querySelector('.story-content').innerHTML = s.content;
+      modal.querySelector('.story-quote-text').textContent = s.quote;
+      modal.querySelector('.story-quote-author').textContent = s.quoteAuthor;
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeStory() {
+      document.getElementById('storyModal').classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeStory();
+    });
+
+  </script>
+
+  <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    const btt = document.querySelector('.back-to-top');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('show', window.scrollY > 300);
+    });
+  </script>
+
+</body>
+</html>
